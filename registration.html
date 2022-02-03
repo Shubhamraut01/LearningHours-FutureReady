@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="registration.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h2>REGISTRATION FORM</h2>
+		</div>
+		<form class="form" method="POST">
+			<div class="form-control">
+				<label>Name</label>
+				<input type="text" name="" id="name" placeholder="Enter your full name" autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<div class="form-control">
+				<label>Address</label>
+				<input type="text" name="" id="address" placeholder="Enter your Address" autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<div class="form-control">
+				<label>Email</label>
+				<input type="text" name="" id="email" placeholder="Enter your E-mail" autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<div class="form-control">
+				<label>Verify E-mail</label>
+				<input type="number" name="" id="verify" placeholder="Enter OTP" autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<div class="form-control">
+				<label>Mobile No.</label>
+				<input type="number" name="" id="phone" placeholder="Enter your Mobile No." autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<div class="form-control">
+				<label>District</label>
+				<input type="text" name="" id="district" placeholder="Enter your full name" autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<div class="form-control">
+				<label>Password</label>
+				<input type="text" name="" id="district" placeholder="Enter Password" autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<div class="form-control">
+				<label>Confirm Password</label>
+				<input type="text" name="" id="district" placeholder="Confirm Password" autocomplete="off">
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error Msg</small>
+			</div>
+			<input type="submit" value="submit" class="btn" name="">
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	const form =document.getElementById('form');
+	const name =document.getElementById('name');
+	const address =document.getElementById('address');
+	const email =document.getElementById('email');
+	const verify =document.getElementById('verify');
+	const phone =document.getElementById('phone');
+	const district =document.getElementById('district');
+
+
+	//add event
+	form.addEventListener('submit', (event)=>{
+		event.preventDefault();
+
+		validate();
+	})
+
+	//more email validate 
+	const isEmail = (emailVal) => {
+		var atSymbol = emailVal.indexOf("@");
+		if(atSymbol <1) return false; //checkin if @ is at first pos
+		
+	} 
+
+	//defining validate function
+	const validate =() => {
+		const name =name.value.trim();//value.trim() removing white spaces from start and end
+		const address =address.value.trim();
+		const emailVal =email.value.trim();
+		const verify =verify.value.trim();
+		const phone =phone.value.trim();
+		const district =district.value.trim();
+
+		//validate name
+		if (name === "") {
+			setErrorMsg(name, 'Name cannot be blank');
+		}else if(name.length <= 2){
+			setErrorMsg(name, 'Name min 3 char');
+		}else{
+			setErrorMsg(name);
+		}
+
+		//validate address
+		if (address === "") {
+			setErrorMsg(address, 'Address cannot be blank');
+		}else if(Address.length <= 2){
+			setErrorMsg(address, 'address min 3 char');
+		}else{
+			setErrorMsg(address);
+		}
+
+		//validate name
+		if (emailVal === "") {
+			setErrorMsg(email, 'email cannot be blank');
+		}else if(isEmail(!emailVal)){
+			setErrorMsg(emailVal, 'email min 3 char');
+		}else{
+			setErrorMsg(email);
+		}
+	}
+
+	function setErrorMsg(input,errormsgs){
+		const formControl = input.parentElement;
+		const small = formControl.querySelector('small');
+		formControl.className="form-control error";
+		small.innerText = errormsgs;
+	}
+</script>
+</html>

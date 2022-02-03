@@ -1,0 +1,28 @@
+
+Deleted Donation Form
+
+<div class="form">
+			<form method="POST">
+				<div class="inputBox">
+					<input type="text" name="name" autocomplete="off" required>
+					<label>Name *</label>
+				</div>
+				<div class="inputBox">
+					<input type="Email" name="e-mail" autocomplete="off" required>
+					<label>E-mail *</label>
+				</div>
+				<div class="inputBox">
+					<input type="text" name="mobileno" autocomplete="off">
+					<label style="color: #fff; font-size: 14px;">Mobile No.</label>
+				</div>
+				<center>
+
+					<input type="submit" name="Donate" value="Donate Now">
+
+					<div id=register><a href="registration - Copy.php" style="color: crimson;">Register here</a>
+
+					</div>
+				</center>
+			</form>
+
+		</div>

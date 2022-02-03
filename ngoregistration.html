@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NGO Registration Form</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		background-image: url(../Project/volunteer1.jpeg);
+		background-size: 100%;
+		background-repeat: no-repeat;
+		font-family: sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		width: 100vw;
+	}
+	.registrationbox{
+		background-color: #fff;
+		/*background: transparent;*/
+		border-radius: 10px;
+		box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.34);
+		overflow: hidden;
+		/*width: 500pxcalc(100%-20%);*/
+		max-width: 100%;
+		margin-top: 10px;
+
+	}
+	
+	.header {
+		background: crimson;
+		padding: 20px 0;
+	}
+	.header h2{
+		color: #fff;
+		font-size: 24px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+	form {
+		padding: 24px;
+		background-color: #fff;
+	}
+	.inputbox{
+		margin-bottom: 20px;
+		position: relative;
+	}
+	.inputbox label {
+		display: inline-block;
+		margin-bottom: 3px;
+	}
+	
+	.inputbox input,select{
+		width: 100%;
+
+		border: 2px solid #d6d6c2;
+		border-radius: 5px;
+		font-size : 14px;
+		padding: 12px;
+	}
+	.inputbox input[accept="Image/*"]{
+		border: none;
+		
+	}
+	form button{
+		background: crimson;
+		box-sizing: border-box;
+		border-radius: 5px;
+		border:none;
+		outline: none;
+		color: #fff;
+		display: block;
+		padding: 15px 0;
+		width: 85%;
+		font-weight: bold;
+		text-transform: uppercase;
+		transition: all 1s ease;
+	}
+
+	.home-page{
+	position: absolute;
+	top: 40px;
+	left: 30px;
+	margin: 50px;
+	box-sizing: border-box;
+	border: crimson;
+	padding: 10px;
+	color: black;
+	opacity: 0.7;
+
+	}
+	.home-page button{
+	padding: 5px;
+	width: 100px;
+	height: 50px;
+	font-size: 19px;
+	color: crimson;
+	font-weight: bold;
+
+	}
+form td,select{
+	width: 250px;
+}
+select{
+	color: #787878;
+}
+table { border-spacing: 40px 0px; }
+</style>
+</head>
+<body>
+	<div class="home-page">
+		<button id="return-home">Home</button>
+		<script>
+		    document.getElementById("return-home").onclick = function () {
+		       location.href = "DoleOut/Doleout.html";
+		   };
+		</script>
+	</div>
+<div class="registrationbox">
+	<div class="header">
+		<h2>NGO Registration Form</h2>
+	</div>
+	
+	<form method="POST" action="NgoRegistration.php" enctype='multipart/form-data'>
+	<table border="0">	
+	<tr>
+	<td>	
+		<div class="inputbox">
+			<label>NGO Name:</label>
+			<input type="text" name="name" placeholder="Enter NGO Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+		</div>
+	</td>
+	<td>	
+		<div class="inputbox">
+			<label>District:</label>
+			<input type="text" name="district" placeholder="Enter District" required>
+		</div>
+	</td>	
+	</tr>	
+	<tr>
+	<td>
+		<div class="inputbox">
+			<label>Address:</label>
+			<input type="text" name="address" placeholder="Enter Address" required>
+		</div>
+	</td>
+	<td>
+		<div class="inputbox">
+			<label>Contact No:</label>
+			<input type="text" name="mobile"maxlength=10 placeholder="Enter Contact Number" $(document).ready(function(){$(".numeric").numeric();}); required>
+		</div>
+	</td>	
+	</tr>	
+	<tr>
+	<td>
+		<div class="inputbox">
+		<label>Donation can be acccepted in form of.. </label>
+		<input type="text" name="donationT" placeholder="Enter Donation Form" required>
+		</div>
+	</td>
+	<td>
+		<div class="inputbox">
+			<label>Describe Your NGO</label>
+			<input type="text" name="describe" placeholder="Describe Your NGO" required>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<div class="inputbox">
+			<label>Email</label><br>
+			<input type="text" name="to" id="email" placeholder="Enter your E-mail" autocomplete="off" value="<?php if(isset($_POST['to'])) echo $_POST['to']; ?>">
+			<input type="submit" name="send" value="Send OTP">
+		</div>
+	</td>
+	<td>
+		<div class="inputbox">
+			<label>Verify E-mail</label><br>
+			<input type="text" name="otp" id="verify" placeholder="Enter OTP" autocomplete="off">
+			<input type="submit" name="verify" value="Verify">
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<div class="inputbox">
+		<label>Upload Your QR Code</label>
+		<input type=file name=file required class=pic>
+		<?php 
+		$target="upload/".basename($_FILES['file']['name']);
+		move_uploaded_file($_FILES['file']['tmp_name'],$target)
+		?>
+  		<!--<input type=submit name=submit></td>-->
+		</div>
+	</td>
+	</tr>
+	</table>
+	<center><button type="submit">Submit</button></center>
+	</form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

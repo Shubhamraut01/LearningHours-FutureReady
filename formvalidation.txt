@@ -1,0 +1,68 @@
+<script type="text/javascript">
+		const form =document.getElementById('form');
+		const name =document.getElementById('name');
+		const address =document.getElementById('address');
+		const email =document.getElementById('email');
+		const verify =document.getElementById('verify');
+		const phone =document.getElementById('phone');
+		const district =document.getElementById('district');
+
+
+	//add event
+	form.addEventListener('submit', (event)=>{
+		event.preventDefault();
+
+		validate();
+	})
+
+	//more email validate 
+	const isEmail = (emailVal) => {
+		var atSymbol = emailVal.indexOf("@");
+		if(atSymbol <1) return false; //checkin if @ is at first pos
+		
+	} 
+
+	//defining validate function
+	const validate =() => {
+		const name =name.value.trim();//value.trim() removing white spaces from start and end
+		const address =address.value.trim();
+		const emailVal =email.value.trim();
+		const verify =verify.value.trim();
+		const phone =phone.value.trim();
+		const district =district.value.trim();
+
+		//validate name
+		if (name === "") {
+			setErrorMsg(name, 'Name cannot be blank');
+		}else if(name.length <= 2){
+			setErrorMsg(name, 'Name min 3 char');
+		}else{
+			setErrorMsg(name);
+		}
+
+		//validate address
+		if (address === "") {
+			setErrorMsg(address, 'Address cannot be blank');
+		}else if(Address.length <= 2){
+			setErrorMsg(address, 'address min 3 char');
+		}else{
+			setErrorMsg(address);
+		}
+
+		//validate name
+		if (emailVal === "") {
+			setErrorMsg(email, 'email cannot be blank');
+		}else if(isEmail(!emailVal)){
+			setErrorMsg(emailVal, 'email min 3 char');
+		}else{
+			setErrorMsg(email);
+		}
+	}
+
+	function setErrorMsg(input,errormsgs){
+		const formControl = input.parentElement;
+		const small = formControl.querySelector('small');
+		formControl.className="form-control error";
+		small.innerText = errormsgs;
+	}
+</script>

@@ -1,0 +1,120 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/*:root {
+	--myfont:'mulish', sans-serif;
+	--my-btn-font:'Montserrat', sans-serif;
+	--lg-lightcolor: linear-gradient(to left, rgba(116, 235, 213, 0.6), rgba(159,172,230,0.));
+}*/
+
+body {
+	background-image: url(../Project/volunteer1.jpeg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	font-family: sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	width: 100vw;
+}
+.container{
+	background-color: #fff;
+	/*background: transparent;*/
+	border-radius: 10px;
+	box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.34);
+	overflow: hidden;
+	/*width: 500pxcalc(100%-20%);*/
+	max-width: 100%;
+	margin-top: 20px;
+}
+.header {
+	background: crimson;
+	padding: 30px 0;
+}
+.header h2{
+	color: #fff;
+	font-size: 24px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.form {
+	padding: 40px;
+	background-color: #fff;
+}
+.form-control{
+	margin-bottom: 20px;
+	position: relative;
+}
+.form-control label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+.form-control input,select{
+	width: 100%;
+
+	border: 2px solid #d6d6c2;
+	border-radius: 5px;
+	font-size : 14px;
+	padding: 12px;
+}
+.form-control input:focus,select:focus{
+	outline: 0; 
+	border-color: #777;
+}
+.form-control.success input {
+	border-color: #2ecc71;
+}
+.form-control.error input {
+	border-color: #e74c3c;
+}
+.form-control i{
+	position: absolute;
+	right: 12px;
+	top: 38px;
+	visibility: hidden;
+}
+.form-control.success i.fa-check-circle{
+	color: #2ecc71;
+	visibility: visible;
+}
+.form-control.error i.fa-exclamation-circle{
+	color: #e74c3c;
+	visibility: visible;
+}
+.form-control small{
+	color: #e74c3c;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+.form-control.error small{
+	visibility: visible;
+}
+.form .btn{
+	background: crimson;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border:none;
+	outline: none;
+	color: #fff;
+	display: block;
+	padding: 15px 0;
+	margin-top: 20px;
+	width: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: all 1s ease;
+}
+.form td,select{
+	width: 250px;
+}
+select{
+	color: #787878;
+}
+table { border-spacing: 40px 0px; }
+
+	
